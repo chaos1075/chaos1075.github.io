@@ -29,7 +29,7 @@ d3.csv("/data/Cushing_OK_WTI_Spot_Price_FOB.csv",
 
   // When reading the csv, I must format variables:
   function(d){
-    return { date : d3.timeParse("%m/%d/%Y")(d.date), price : d.price }
+    return { date : d3.timeParse("%M/%d/%Y")(d.date), price : d.price }
   },
   // Now I can use this dataset:
   function(data) {
