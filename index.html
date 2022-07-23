@@ -54,6 +54,8 @@ var svg = d3.select("#oil_price")
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
       .attr("d", d3.line()
+	    .defined(function(d){
+		    return d.x < time.parse("2010-01-01") && d.x > time.parse("2005-01-01");})
         .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.price) })
         )
