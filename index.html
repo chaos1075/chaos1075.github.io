@@ -55,8 +55,8 @@ var parseTime = d3.timeParse("%Y-%m-%d");
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
       .attr("d", d3.line()
-	    .defined(function(d){
-		    return d.x < parseTime("2010-01-01") && d.x > parseTime("2005-01-01");})
+	    //.defined(function(d){
+		//    return d.x < parseTime("2010-01-01") && d.x > parseTime("2005-01-01");})
         .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.price) })
         )
