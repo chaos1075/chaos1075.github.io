@@ -96,8 +96,8 @@
 </head>
 <body>
     <svg width=960 height=500>
-      <text class="title" x=40 y=50>d3.annotation()</text>
-      <text x=40 y=80>AAPL stock example</text>
+      <text class="title" x=40 y=50>Oil Price Influencing Factors</text>
+      <text x=40 y=80>1986/1/2-2022/7/18</text>
     </svg>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
@@ -107,7 +107,7 @@
     const height = 500
     const margin = { top: 120, bottom: 160, left: 50, right: 50}
     const x = d3.scaleTime().range([margin.left, width - margin.right ])
-          .domain([new Date('12/1/2005'), new Date('1/1/2011') ])
+          .domain([new Date('1/2/1986'), new Date('7/18/2022') ])
     const y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
           .domain([0, 330])
 
