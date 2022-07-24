@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
-    <a href="1990.html" role="button" onclick="setAll()" >1</a>
     <style>
      body{
         background-color: whitesmoke;
@@ -92,12 +91,32 @@
       font-size: 1.2em;
     }
 
+   .button {
+     background-color: #04AA6D; /* Green */
+     border: none;
+     color: white;
+     padding: 20px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+     margin: 4px 2px;
+     cursor: pointer;
+   }
+   
+   .button1 {border-radius: 50%;}
+   .button2 {border-radius: 4px;}
+   .button3 {border-radius: 8px;}
+   .button4 {border-radius: 12px;}
+   .button5 {border-radius: 50%;}
     </style>
 </head>
 <body>
     <svg width=960 height=500>
       <text class="title" x=40 y=50>Oil Price Influencing Factors</text>
       <text x=40 y=80>1986/1/2-2022/7/18</text>
+	  <button class="button1" href="1990.html" >1</button>
+
     </svg>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
