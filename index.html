@@ -52,7 +52,7 @@ var parseTime = d3.timeParse("%Y-%m-%d");
     var line = d3.datum(data)
         .svg.line()
         .x(function(d) { return x(d.date) })
-        .y(function(d) { return y(d.price) })
+        .y(function(d) { return y(d.price) });
     
     var path = svg.append("path")
       .attr("fill", "none")
