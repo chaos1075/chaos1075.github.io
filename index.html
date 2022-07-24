@@ -114,8 +114,8 @@
     d3.csv("/data/Cushing_OK_WTI_Spot_Price_FOB.csv", function(data) {
 
       var line = d3.line()
-        .x(function (d) {return x(new Date (d.Date))})
-        .y(function (d) {return y(d.Close)})
+        .x(function (d) {return x(new Date (d.date))})
+        .y(function (d) {return y(d.price)})
 
       const svg = d3.select("svg")
 
