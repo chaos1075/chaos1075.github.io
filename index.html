@@ -60,20 +60,20 @@ var parseTime = d3.timeParse("%Y-%m-%d");
         .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.price) })
         )
+    const annotations = [
+      {
+        note: { label: "Hi" },
+        x: 100,
+        y: 100,
+        dy: 137,
+        dx: 162,
+        subject: { radius: 50, radiusPadding: 10 },
+      },
+    ];
 
+    d3.annotation().annotations(annotations);
 }
-const annotations = [
-  {
-    note: { label: "Hi" },
-    x: 100,
-    y: 100,
-    dy: 137,
-    dx: 162,
-    subject: { radius: 50, radiusPadding: 10 },
-  },
-];
 
-d3.annotation().annotations(annotations);
 )
 </script>
 </body>
