@@ -115,9 +115,8 @@
     <svg width=960 height=500>
       <text class="title" x=40 y=50>Oil Price Influencing Factors</text>
       <text x=40 y=80>1986/1/2-2022/7/18</text>
-	  <button class="button1" href="1990.html" >1</button>
-
     </svg>
+	<button class="button1" href="1990.html" >1</button>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
     <script>
@@ -223,51 +222,6 @@
         .attr("class", "annotation-group")
         .call(makeAnnotations)
 
-
-      //annotations for legend
-      const annotationsLegend = [{
-          note: { label: "MacBook Pro Release" },
-          subject: { text: "A" }
-        },
-        {
-          note: { label: "iPhone Release" },
-          subject: { text: "B" }
-        },
-        {
-          note: { label: "Macbook Air" },
-          subject: { text: "C" }
-        },
-        {
-          note: { label: "iPad Release" },
-          subject: { text: "D" }
-        }
-        ].map(function(d, i){
-          d.x = margin.left + i*200
-          d.y = 415 
-          d.subject.x = "right" 
-          d.subject.y = "bottom" 
-          d.subject.radius = 10
-          return d
-        })
-
-      const makeLegendAnnotations = d3.annotation()
-        .type(d3.annotationBadge)
-        .annotations(annotationsLegend)
-
-      d3.select("svg")
-        .append("g")
-        .attr("class", "annotation-legend")
-        .call(makeLegendAnnotations)
-        
-      d3.select("svg g.annotation-legend")
-        .selectAll('text.legend')
-        .data(annotationsLegend)
-        .enter()
-        .append('text')
-        .attr('class', 'legend')
-        .text(function(d){ return d.note.label })
-        .attr('x', function(d, i){ return margin.left + 30 + i*200 })
-        .attr('y', 430)
 
     });
     
