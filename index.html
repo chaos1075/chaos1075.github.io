@@ -49,35 +49,31 @@ var parseTime = d3.timeParse("%Y-%m-%d");
       .call(d3.axisLeft(y));
 
     // Add the line
-    var line = d3.datum(data)
-        .svg.line()
-        .x(function(d) { return x(d.date) })
-        .y(function(d) { return y(d.price) });
-    
-    var path = svg.append("path")
+    svg.append("path")
+      .datum(data)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5);
-    
-    var totalLength = path.node().getTotalLength();
+      .attr("stroke-width", 1.5)
+      .attr("d", d3.line()
+	    //.defined(function(d){
+		//    return d.x < parseTime("2010-01-01") && d.x > parseTime("2005-01-01");})
+        .x(function(d) { return x(d.date) })
+        .y(function(d) { return y(d.price) })
+        )
 
-    path
-      .attr("stroke-dasharray", totalLength + " " + totalLength)
-      .attr("stroke-dashoffset", totalLength)
-      .transition()
-        .duration(2000)
-        .ease("linear")
-        .attr("stroke-dashoffset", 0);
+}
+const annotations = [
+  {
+    note: { label: "Hi" },
+    x: 100,
+    y: 100,
+    dy: 137,
+    dx: 162,
+    subject: { radius: 50, radiusPadding: 10 },
+  },
+];
 
-    svg.on("click", function(){
-      path      
-        .transition()
-        .duration(2000)
-        .ease("linear")
-        .attr("stroke-dashoffset", totalLength);
-        
-
-})
+d3.annotation().annotations(annotations);
 )
 </script>
 </body>
