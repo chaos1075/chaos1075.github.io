@@ -60,6 +60,10 @@ var parseTime = d3.timeParse("%Y-%m-%d");
         .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.price) })
         )
+
+}
+
+)
     const annotations = [
       {
         note: { label: "Hi" },
@@ -72,9 +76,6 @@ var parseTime = d3.timeParse("%Y-%m-%d");
     ];
 
     d3.annotation().annotations(annotations);
-}
-
-)
 </script>
 </body>
 </html>
