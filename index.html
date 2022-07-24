@@ -25,6 +25,16 @@ var svg = d3.select("#oil_price")
           "translate(" + margin.left + "," + margin.top + ")");	
 var parseTime = d3.timeParse("%Y-%m-%d");
 
+const annotations = [
+  {
+    note: { label: "Hi" },
+    x: 100,
+    y: 100,
+    dy: 137,
+    dx: 162,
+    subject: { radius: 50, radiusPadding: 10 },
+  },
+];
 //Read the data
   d3.csv("/data/Cushing_OK_WTI_Spot_Price_FOB.csv",
   // When reading the csv, I must format variables:
@@ -64,18 +74,8 @@ var parseTime = d3.timeParse("%Y-%m-%d");
 }
 
 )
-    const annotations = [
-      {
-        note: { label: "Hi" },
-        x: 100,
-        y: 100,
-        dy: 137,
-        dx: 162,
-        subject: { radius: 50, radiusPadding: 10 },
-      },
-    ];
 
-    d3.annotation().annotations(annotations);
+  d3.annotation().annotations(annotations);
 </script>
 </body>
 </html>
