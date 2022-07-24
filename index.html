@@ -49,17 +49,33 @@ var parseTime = d3.timeParse("%Y-%m-%d");
       .call(d3.axisLeft(y));
 
     // Add the line
-    svg.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
-      .attr("d", d3.line()
-	    //.defined(function(d){
-		//    return d.x < parseTime("2010-01-01") && d.x > parseTime("2005-01-01");})
+    var line = d3.datum(data)
+        .svg.line()
         .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.price) })
-        )
+    
+    var path = svg.append("path")
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 1.5);
+    
+    var totalLength = path.node().getTotalLength();
+
+    path
+      .attr("stroke-dasharray", totalLength + " " + totalLength)
+      .attr("stroke-dashoffset", totalLength)
+      .transition()
+        .duration(2000)
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
+
+    svg.on("click", function(){
+      path      
+        .transition()
+        .duration(2000)
+        .ease("linear")
+        .attr("stroke-dashoffset", totalLength);
+        
 
 })
 </script>
