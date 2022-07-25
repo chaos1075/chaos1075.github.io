@@ -221,6 +221,60 @@
           dx: (x(new Date("12/1/2009")) - x(new Date("1/1/2008")))/2,
           data: { x: "1/1/2008"}
         },
+        {
+          note: { 
+            title: "4", 
+            lineType: "none", 
+            align: "middle",
+            wrap: 150 //custom text wrapping
+          },
+          subject: {
+            height: height - margin.top - margin.bottom,
+            width: x(new Date("12/1/2015")) - x(new Date("1/1/2014"))
+          },
+          type: d3.annotationCalloutRect,
+          y: margin.top,
+          disable: ["connector"], // doesn't draw the connector
+          //can pass "subject" "note" and "connector" as valid options
+          dx: (x(new Date("12/1/2015")) - x(new Date("1/1/2014")))/2,
+          data: { x: "1/1/2014"}
+        },
+        {
+          note: { 
+            title: "5", 
+            lineType: "none", 
+            align: "middle",
+            wrap: 150 //custom text wrapping
+          },
+          subject: {
+            height: height - margin.top - margin.bottom,
+            width: x(new Date("1/1/2021")) - x(new Date("1/1/2020"))
+          },
+          type: d3.annotationCalloutRect,
+          y: margin.top,
+          disable: ["connector"], // doesn't draw the connector
+          //can pass "subject" "note" and "connector" as valid options
+          dx: (x(new Date("1/1/2021")) - x(new Date("1/1/2020")))/2,
+          data: { x: "1/1/2020"}
+        },
+        {
+          note: { 
+            title: "6", 
+            lineType: "none", 
+            align: "middle",
+            wrap: 150 //custom text wrapping
+          },
+          subject: {
+            height: height - margin.top - margin.bottom,
+            width: x(new Date("7/1/2022")) - x(new Date("1/1/2022"))
+          },
+          type: d3.annotationCalloutRect,
+          y: margin.top,
+          disable: ["connector"], // doesn't draw the connector
+          //can pass "subject" "note" and "connector" as valid options
+          dx: (x(new Date("7/1/2022")) - x(new Date("1/1/2022")))/2,
+          data: { x: "1/1/2022"}
+        }
         <!-- { -->
           <!-- subject: { -->
             <!-- text: "A", -->
