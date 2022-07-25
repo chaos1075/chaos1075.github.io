@@ -281,23 +281,24 @@
             title: "war last for one year" //badges have an x of "left" or "right"
           },
           <!-- data: { x: "8/10/1990", y: 80.9}, -->
-		  type: d3.annotationCalloutCircle,
-		  subject: {
-		     radius: 20,
-			 radiusPadding: 20
-			 },
-		  color: ["red"],
-		  x: "8/10/1990",
-		  y: 80.9,
-		  dy: 130,
-		  dx: 160
+          type: d3.annotationCalloutCircle,
+          subject: {
+             radius: 20,
+             radiusPadding: 20
+             },
+          color: ["red"],
+          data: { x: "8/10/1990", y: 80.9},
+          <!-- x: "8/10/1990", -->
+          <!-- y: 80.9, -->
+          dy: 130,
+          dx: 160
         }
-		]
+        ]
 
       <!-- const type = d3.annotationCustomType( -->
         <!-- d3.annotationCalloutCircle,  -->
         <!-- {"subject":{ -->
-		           <!-- "radius": 10, -->
+                   <!-- "radius": 10, -->
                    <!-- "radiusPadding": 5}} -->
       <!-- ) -->
 
