@@ -116,8 +116,8 @@
 	<!-- <a class="button1" href="1990.html" role="button" onclick="setAll()" >1</button> -->
     <div class="pagination">
        <a href="#">&laquo;</a>
-	   <a class="active" href="index.html">0</a>
-       <a href="1990.html">1</a>
+	   <a href="index.html">0</a>
+       <a class="active" href="1990.html">1</a>
        <a href="2002.html">2</a>
        <a href="2008.html">3</a>
        <a href="2014.html">4</a>
@@ -133,7 +133,7 @@
     const height = 500
     const margin = { top: 120, bottom: 160, left: 50, right: 50}
     const x = d3.scaleTime().range([margin.left, width - margin.right ])
-          .domain([new Date('1/2/1986'), new Date('7/18/2022') ])
+          .domain([new Date('1/1/1990'), new Date('12/1/1991') ])
     const y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
           .domain([0, 200])
 
