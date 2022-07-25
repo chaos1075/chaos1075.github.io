@@ -276,11 +276,17 @@
           <!-- data: { x: "1/1/2022"} -->
         <!-- } -->
         {
-          subject: {
+          note: {
             label: "Gulf war",
             title: "war last for one year" //badges have an x of "left" or "right"
           },
           <!-- data: { x: "8/10/1990", y: 80.9}, -->
+		  type: d3.annotationCalloutCircle,
+		  subject: {
+		     radius: 20,
+			 radiusPadding: 20
+			 },
+		  color: ["red"],
 		  x: "8/10/1990",
 		  y: 80.9,
 		  dy: 130,
@@ -288,15 +294,15 @@
         }
 		]
 
-      const type = d3.annotationCustomType(
-        d3.annotationCalloutCircle, 
-        {"subject":{
-		           "radius": 10,
-                   "radiusPadding": 5}}
-      )
+      <!-- const type = d3.annotationCustomType( -->
+        <!-- d3.annotationCalloutCircle,  -->
+        <!-- {"subject":{ -->
+		           <!-- "radius": 10, -->
+                   <!-- "radiusPadding": 5}} -->
+      <!-- ) -->
 
       const makeAnnotations = d3.annotation()
-        .type(type)
+        <!-- .type(type) -->
         .accessors({ 
           x: function(d){ return x(new Date(d.x))},
           y: function(d){ return y(d.y) }
