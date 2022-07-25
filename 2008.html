@@ -12,7 +12,7 @@
     :root {
       --line-chart-color: #607D8B;
       --annotation-context-color: #546E7A;
-      --annotation-badge-color:black;
+      --annotation-badge-color:red;
       --annotation-color: #E8336D;
     }
 
@@ -111,7 +111,7 @@
 <body>
     <svg width=960 height=500>
       <text class="title" x=40 y=50>Oil Price Influencing Factors</text>
-      <text x=40 y=80>1990/1/1-1991/12/1</text>
+      <text x=40 y=80>2008/1/1-2009/12/1</text>
     </svg>
 	<!-- <a class="button1" href="1990.html" role="button" onclick="setAll()" >1</button> -->
     <div class="pagination">
@@ -133,7 +133,7 @@
     const height = 500
     const margin = { top: 120, bottom: 160, left: 50, right: 50}
     const x = d3.scaleTime().range([margin.left, width - margin.right ])
-          .domain([new Date('6/1/1989'), new Date('6/1/1992') ])
+          .domain([new Date('6/1/2007'), new Date('6/1/2010') ])
     const y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
           .domain([0, 200])
 
@@ -176,14 +176,14 @@
           },
           subject: {
             height: height - margin.top - margin.bottom,
-            width: x(new Date("12/1/1991")) - x(new Date("1/1/1990"))
+            width: x(new Date("12/1/2009")) - x(new Date("1/1/2008"))
           },
           type: d3.annotationCalloutRect,
           y: margin.top,
           disable: ["connector"], // doesn't draw the connector
           //can pass "subject" "note" and "connector" as valid options
-          dx: (x(new Date("12/1/1991")) - x(new Date("1/1/1990")))/2,
-          data: { x: "1/1/1990"}
+          dx: (x(new Date("12/1/2009")) - x(new Date("1/1/2008")))/2,
+          data: { x: "1/1/2008"}
         },
         <!-- { -->
           <!-- note: {  -->
