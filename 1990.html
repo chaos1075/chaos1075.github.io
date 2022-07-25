@@ -280,13 +280,17 @@
             text: "Gulf war",
             x: "right" //badges have an x of "left" or "right"
           },
-          data: { x: "8/10/1990", y: 80.9}
+          data: { x: "8/10/1990", y: 80.9},
+		  dy: 130,
+		  dx: 160
         }
 		]
 
       const type = d3.annotationCustomType(
-        d3.annotationBadge, 
-        {"subject":{"radius": 10 }}
+        d3.annotationCalloutCircle, 
+        {"subject":{
+		           "radius": 10,
+                   "radiusPadding": 5}}
       )
 
       const makeAnnotations = d3.annotation()
