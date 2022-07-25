@@ -111,7 +111,7 @@
 <body>
     <svg width=960 height=500>
       <text class="title" x=40 y=50>Oil Price Influencing Factors</text>
-      <text x=40 y=80>2008/1/1-2009/12/1</text>
+      <text x=40 y=80>2014/1/1-2015/12/1</text>
     </svg>
 	<!-- <a class="button1" href="1990.html" role="button" onclick="setAll()" >1</button> -->
     <div class="pagination">
@@ -119,8 +119,8 @@
 	   <a href="index.html">0</a>
        <a href="1990.html">1</a>
        <a href="2002.html">2</a>
-       <a class="active" href="2008.html">3</a>
-       <a href="2014.html">4</a>
+       <a href="2008.html">3</a>
+       <a class="active" href="2014.html">4</a>
        <a href="2020.html">5</a>
        <a href="2022.html">6</a>
        <a href="#">&raquo;</a>
@@ -133,7 +133,7 @@
     const height = 500
     const margin = { top: 120, bottom: 160, left: 50, right: 50}
     const x = d3.scaleTime().range([margin.left, width - margin.right ])
-          .domain([new Date('6/1/2007'), new Date('6/1/2010') ])
+          .domain([new Date('6/1/2013'), new Date('6/1/2016') ])
     const y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
           .domain([0, 200])
 
@@ -169,21 +169,21 @@
         //the Macbook Air annotation
         {
           note: { 
-            title: "3", 
+            title: "4", 
             lineType: "none", 
             align: "middle",
             wrap: 150 //custom text wrapping
           },
           subject: {
             height: height - margin.top - margin.bottom,
-            width: x(new Date("12/1/2009")) - x(new Date("1/1/2008"))
+            width: x(new Date("12/1/2015")) - x(new Date("1/1/2014"))
           },
           type: d3.annotationCalloutRect,
           y: margin.top,
           disable: ["connector"], // doesn't draw the connector
           //can pass "subject" "note" and "connector" as valid options
-          dx: (x(new Date("12/1/2009")) - x(new Date("1/1/2008")))/2,
-          data: { x: "1/1/2008"}
+          dx: (x(new Date("12/1/2015")) - x(new Date("1/1/2014")))/2,
+          data: { x: "1/1/2014"}
         },
         <!-- { -->
           <!-- note: {  -->
@@ -277,8 +277,8 @@
         <!-- } -->
         {
           note: {
-            label: "triggered by Iraq's invasion of Kuwait, leading to the rise of oil price",
-            title: "Financial crisis" //badges have an x of "left" or "right"
+            label: "demand was less from China and India, but supply kept increasing",
+            title: "Economy slows down" //badges have an x of "left" or "right"
           },
           <!-- data: { x: "8/10/1990", y: 80.9}, -->
           type: d3.annotationCalloutCircle,
@@ -287,7 +287,7 @@
              radiusPadding: 1
              },
           color: ["red"],
-          data: { x: "7/1/2008", y: 141.06},
+          data: { x: "7/10/2014", y: 103.61},
           <!-- x: "8/10/1990", -->
           <!-- y: 80.9, -->
           dy: -30,
