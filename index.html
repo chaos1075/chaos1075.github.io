@@ -118,11 +118,11 @@
        <a href="#">&laquo;</a>
 	   <a class="active" href="index.html">0</a>
        <a href="1990.html">1</a>
-       <a href="#">2</a>
-       <a href="#">3</a>
-       <a href="#">4</a>
-       <a href="#">5</a>
-       <a href="#">6</a>
+       <a href="2002.html">2</a>
+       <a href="2008.html">3</a>
+       <a href="2014.html">4</a>
+       <a href="2020.html">5</a>
+       <a href="2022.html">6</a>
        <a href="#">&raquo;</a>
     </div>
     <script src="https://d3js.org/d3.v4.js"></script>
@@ -169,48 +169,85 @@
         //the Macbook Air annotation
         {
           note: { 
-            title: "Recession GDP -5.1%", 
+            title: "1", 
             lineType: "none", 
             align: "middle",
             wrap: 150 //custom text wrapping
           },
           subject: {
             height: height - margin.top - margin.bottom,
-            width: x(new Date("6/1/2009")) - x(new Date("12/1/2007"))
+            width: x(new Date("12/1/1991")) - x(new Date("1/1/1990"))
           },
           type: d3.annotationCalloutRect,
           y: margin.top,
           disable: ["connector"], // doesn't draw the connector
           //can pass "subject" "note" and "connector" as valid options
-          dx: (x(new Date("6/1/2009")) - x(new Date("12/1/2007")))/2,
-          data: { x: "12/1/2007"}
+          dx: (x(new Date("12/1/1991")) - x(new Date("1/1/1990")))/2,
+          data: { x: "1/1/1990"}
         },
         {
-          subject: {
-            text: "A",
-            x: "right" //badges have an x of "left" or "right"
+          note: { 
+            title: "2", 
+            lineType: "none", 
+            align: "middle",
+            wrap: 150 //custom text wrapping
           },
-          data: { x: "1/10/2006", y: 80.9}
-        },
-        {
-          subject: { text: "B" },
-          data: { x: "6/29/2007", y: 122}
-        },
-        {
           subject: {
-            text: "C",
-            y: "bottom" //badges have a y of "top" or "bottom"
+            height: height - margin.top - margin.bottom,
+            width: x(new Date("12/1/2002")) - x(new Date("1/1/2001"))
           },
-          data: { x: "1/29/2008", y: 131.5}
+          type: d3.annotationCalloutRect,
+          y: margin.top,
+          disable: ["connector"], // doesn't draw the connector
+          //can pass "subject" "note" and "connector" as valid options
+          dx: (x(new Date("12/1/2002")) - x(new Date("1/1/2001")))/2,
+          data: { x: "1/1/2001"}
         },
         {
-          subject: {
-            text: "D",
-            y: "bottom",
-            x: "right"
+          note: { 
+            title: "3", 
+            lineType: "none", 
+            align: "middle",
+            wrap: 150 //custom text wrapping
           },
-          data: { x: "4/3/2010", y: 238}
-        }]
+          subject: {
+            height: height - margin.top - margin.bottom,
+            width: x(new Date("12/1/2009")) - x(new Date("1/1/2008"))
+          },
+          type: d3.annotationCalloutRect,
+          y: margin.top,
+          disable: ["connector"], // doesn't draw the connector
+          //can pass "subject" "note" and "connector" as valid options
+          dx: (x(new Date("12/1/2009")) - x(new Date("1/1/2008")))/2,
+          data: { x: "1/1/2008"}
+        },
+        <!-- { -->
+          <!-- subject: { -->
+            <!-- text: "A", -->
+            <!-- x: "right" //badges have an x of "left" or "right" -->
+          <!-- }, -->
+          <!-- data: { x: "1/10/2006", y: 80.9} -->
+        <!-- }, -->
+        <!-- { -->
+          <!-- subject: { text: "B" }, -->
+          <!-- data: { x: "6/29/2007", y: 122} -->
+        <!-- }, -->
+        <!-- { -->
+          <!-- subject: { -->
+            <!-- text: "C", -->
+            <!-- y: "bottom" //badges have a y of "top" or "bottom" -->
+          <!-- }, -->
+          <!-- data: { x: "1/29/2008", y: 131.5} -->
+        <!-- }, -->
+        <!-- { -->
+          <!-- subject: { -->
+            <!-- text: "D", -->
+            <!-- y: "bottom", -->
+            <!-- x: "right" -->
+          <!-- }, -->
+          <!-- data: { x: "4/3/2010", y: 238} -->
+        <!-- } -->
+		]
 
       const type = d3.annotationCustomType(
         d3.annotationBadge, 
