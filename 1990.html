@@ -133,7 +133,7 @@
     const height = 500
     const margin = { top: 120, bottom: 160, left: 50, right: 50}
     const x = d3.scaleTime().range([margin.left, width - margin.right ])
-          .domain([new Date('1/1/1990'), new Date('12/1/1991') ])
+          .domain([new Date('6/1/1989'), new Date('6/1/1992') ])
     const y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
           .domain([0, 200])
 
@@ -283,14 +283,14 @@
           <!-- data: { x: "8/10/1990", y: 80.9}, -->
           type: d3.annotationCalloutCircle,
           subject: {
-             radius: 2,
-             radiusPadding: .2
+             radius: 10,
+             radiusPadding: 1
              },
           color: ["red"],
           data: { x: "8/10/1990", y: 26.38},
           <!-- x: "8/10/1990", -->
           <!-- y: 80.9, -->
-          dy: 10,
+          dy: -10,
           dx: 10
         }
         ]
