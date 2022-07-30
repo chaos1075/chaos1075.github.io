@@ -157,6 +157,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .merge(lines)
             .transition()
             .attr('d', line);
+		svg.append('line').attr({'y': 17500}).style("stroke","red").style("stroke-width","4px");
 
         var bars = svg.selectAll('.bar')
             .data(year_data);
@@ -221,21 +222,21 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             draw(this.value);
         });
     };
-    addline("1963");
-    function addline(year) {
+    <!-- addline("1963"); -->
+    <!-- function addline(year) { -->
 
         
         
-        year_data1 = data.filter(function(d) {
-            return dateParse(d.date)
-                .getFullYear() === +year;
-        });
+        <!-- year_data1 = data.filter(function(d) { -->
+            <!-- return dateParse(d.date) -->
+                <!-- .getFullYear() === +year; -->
+        <!-- }); -->
         
-        d3.select("svg").data([year_data1]).append('path')
-            .attr('class', 'line')
-            .attr('fill', 'none')
-            .attr('stroke', 'grey')
-            .attr('d', line);
+        <!-- d3.select("svg").data([year_data1]).append('path') -->
+            <!-- .attr('class', 'line') -->
+            <!-- .attr('fill', 'none') -->
+            <!-- .attr('stroke', 'grey') -->
+            <!-- .attr('d', line); -->
         
 
         <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
@@ -285,7 +286,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         <!-- d3.select('.y.axis') -->
             <!-- .transition() -->
             <!-- .call(y_axis); -->
-			}
+			<!-- } -->
 	 
 });	
 	
