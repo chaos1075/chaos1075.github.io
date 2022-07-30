@@ -242,10 +242,6 @@
         .attr("transform", "translate(0,"+ (height - margin.bottom) +")")
         .call(xAxis);
   
-  var slider = d3.select('#slider-year');
-        slider.on('change', function() {
-            draw(this.value);
-        });
 		
       annotations = [
         //moved recession annotation to front of array so it's behind 
@@ -403,7 +399,13 @@
         .append("g")
         .attr("class", "annotation-group")
         .call(makeAnnotations)
-}
+  
+  var slider = d3.select('#slider-year');
+        slider.on('change', function() {
+            draw(this.value);
+        });
+        
+        }
 
     });
     
