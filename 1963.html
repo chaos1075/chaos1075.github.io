@@ -20,30 +20,48 @@
         padding: 2px;
         font-family: sans-serif;
         font-size: 11px;
+	.pagination a {
+	  color: black;
+	  float: left;
+	  padding: 8px 16px;
+	  text-decoration: none;
+	  transition: background-color .3s;
+	}
+
+	.pagination a.active {
+	  background-color: dodgerblue;
+	  color: white;
+	}
+
+	.pagination a:hover:not(.active) {background-color: #ddd;}
+
     }
 </style>
 </head>
 <body>
     <h1>US House Median Price</h1>
 	<label for="year">Please select a year: </label>
-    <input type="range" min="1963" max="2022" step=1 id="year" value="2014" oninput="selected_year.value = year.value">
-    <output name="selected_year" id="selected_year">2014</output>
-    <div id="vis">
-    </div>
+    <input type="range" min="1963" max="2022" step=1 id="year" value="1963" oninput="selected_year.value = year.value">
+    <output name="selected_year" id="selected_year">1963</output>
     <div class="pagination">
        <!-- <a href="#">&laquo;</a> -->
 	   <a class="active" href="index.html">0</a>
-       <a href="2001.html">1</a>
+       <a href="1963.html">1</a>
        <a href="2009.html">2</a>
        <a href="2022.html">3</a>
        <a href="1990.html">&raquo;</a>
     </div>
+    <div id="vis">
+    </div>
+
 
     <script>
-var width = document.getElementById('vis')
-    .clientWidth;
-var height = document.getElementById('vis')
-    .clientHeight;
+<!-- var width = document.getElementById('vis') -->
+    <!-- .clientWidth; -->
+<!-- var height = document.getElementById('vis') -->
+    <!-- .clientHeight; -->
+var width = 960;
+var height = 500;
 
 var margin = {
     top: 10,
@@ -109,7 +127,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         return +d.value;
     })]);
 
-    draw("2014");
+    draw("1963");
 
     function draw(year) {
 
@@ -201,28 +219,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         slider.on('change', function() {
             draw(this.value);
         });
-          const annotations = [
-        {
-          note: {
-            label: "triggered by Iraq's invasion of Kuwait, leading to the rise of oil price",
-            title: "Gulf war" //badges have an x of "left" or "right"
-          },
-          <!-- data: { x: "8/10/1990", y: 80.9}, -->
-          type: d3.annotationCalloutCircle,
-          subject: {
-             radius: 10,
-             radiusPadding: 1
-             },
-          color: ["red"],
-          data: { x: "2009 JUN", y: 2638},
-          <!-- x: "8/10/1990", -->
-          <!-- y: 80.9, -->
-          dy: -30,
-          dx: 30
-        }
-        ]
-	}
-	
+    }
 });	
 	
 	</script>
