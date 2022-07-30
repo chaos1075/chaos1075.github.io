@@ -140,11 +140,11 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         });
 
         x_scale.domain(d3.extent(year_data, function(d) {
-            return dateParse(d.date);
+            return dateParse(d.date.replace(year, ''));
         }));
 
         band_scale.domain(year_data.map(function(d) {
-            return dateParse(d.date);
+            return dateParse(d.date.replace(year, ''));
         }));
 
         var lines = svg.selectAll('.line')
@@ -245,11 +245,11 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         
 
         x_scale.domain(d3.extent(year_data, function(d) {
-            return dateParse(d.date);
+            return dateParse(d.date.replace(year, ''));
         }));
 
         band_scale.domain(year_data.map(function(d) {
-            return dateParse(d.date);
+            return dateParse(d.date.replace(year, ''));
         }));
 
         var lines = svg.selectAll('.line')
