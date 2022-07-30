@@ -145,10 +145,10 @@
 <body>
     <svg width=960 height=500>
       <text class="title" x=40 y=50>Oil price impacted by major events</text>
-      <!-- <text x=40 y=80>1986/1/2-2022/7/18</text> -->
-	  <label for="year">Please select a year: </label>
-      <input type="range" min=1975 max=2016 step=1 id="year" value=2014 oninput="selected_year.value = year.value">
-      <output name="selected_year" id="selected_year">2014</output>
+      <text x=40 y=80>1986/1/2-2022/7/18</text>
+	  <!-- <label for="year">Please select a year: </label> -->
+      <!-- <input type="range" min=1975 max=2016 step=1 id="year" value=2014 oninput="selected_year.value = year.value"> -->
+      <!-- <output name="selected_year" id="selected_year">2014</output> -->
     </svg>
 	<!-- <a class="button1" href="1990.html" role="button" onclick="setAll()" >1</button> -->
     <div class="pagination">
@@ -163,41 +163,48 @@
        <a href="1990.html">&raquo;</a>
     </div>
 
-    <!-- <div class="slidecontainer"> -->
-      <!-- <input type="range" min="1986" max="2022" value="2020" class="slider" id="slider-time"> -->
-      <!-- <p>Year: <span id="demo"></span></p> -->
-    <!-- </div> -->
+    <div class="slidecontainer">
+      <input type="range" min="1986" max="2022" value="2020" class="slider" id="slider-year">
+      <p>Year: <span id="demo"></span></p>
+    </div>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
     <script>
+    var slider = document.getElementById("slider-year");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+    
+    slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
 
-  var dataTime = d3.range(0, 37).map(function(d) {
-    return new Date(1986 + d, 1, 1);
-  });
+  <!-- var dataTime = d3.range(0, 37).map(function(d) { -->
+    <!-- return new Date(1986 + d, 1, 1); -->
+  <!-- }); -->
 
-  var sliderTime = d3
-    .min(1986)
-    .max(2022)
-    .step(1)
-    .width(300)
-    .tickFormat(d3.timeFormat('%Y'))
-    .tickValues(dataTime)
-    .default(new Date(1990, 1, 1))
-    .on('onchange', val => {
-      d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
-    });
+  <!-- var sliderTime = d3 -->
+    <!-- .min(1986) -->
+    <!-- .max(2022) -->
+    <!-- .step(1) -->
+    <!-- .width(300) -->
+    <!-- .tickFormat(d3.timeFormat('%Y')) -->
+    <!-- .tickValues(dataTime) -->
+    <!-- .default(new Date(1990, 1, 1)) -->
+    <!-- .on('onchange', val => { -->
+      <!-- d3.select('p#value-time').text(d3.timeFormat('%Y')(val)); -->
+    <!-- }); -->
 
-  var gTime = d3
-    .select('div#slider-time')
-    .append('svg')
-    .attr('width', 500)
-    .attr('height', 100)
-    .append('g')
-    .attr('transform', 'translate(30,30)');
+  <!-- var gTime = d3 -->
+    <!-- .select('div#slider-time') -->
+    <!-- .append('svg') -->
+    <!-- .attr('width', 500) -->
+    <!-- .attr('height', 100) -->
+    <!-- .append('g') -->
+    <!-- .attr('transform', 'translate(30,30)'); -->
 
-  gTime.call(sliderTime);
+  <!-- gTime.call(sliderTime); -->
 
-  d3.select('p#value-time').text(d3.timeFormat('%Y')(sliderTime.value()));
+  <!-- d3.select('p#value-time').text(d3.timeFormat('%Y')(sliderTime.value())); -->
 
     const width = 960
     const height = 500
