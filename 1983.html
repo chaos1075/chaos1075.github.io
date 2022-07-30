@@ -184,12 +184,12 @@ svg.append('line').attr({"x1": 0, "y1":17500, "x2": 200, "y2":17500});
             <!-- .on('mousemove', mouseMove) -->
             <!-- .on('mouseout', mouseOut); -->
 
-        <!-- d3.select('.x.axis') -->
-            <!-- .call(x_axis); -->
+        d3.select('.x.axis')
+            .call(x_axis);
 
-        <!-- d3.select('.y.axis') -->
-            <!-- .transition() -->
-            <!-- .call(y_axis); -->
+        d3.select('.y.axis')
+            .transition()
+            .call(y_axis);
 
         <!-- function mouseOver(d) { -->
             <!-- var date = dateParse(d.date); -->
