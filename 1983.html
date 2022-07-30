@@ -157,7 +157,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .merge(lines)
             .transition()
             .attr('d', line);
-		svg.append('line').attr({'y': 17500}).style("stroke","red");
+        svg.append('line').attr({'y': 17500});
 
         var bars = svg.selectAll('.bar')
             .data(year_data);
