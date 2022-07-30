@@ -87,6 +87,7 @@ height = height - margin.top - margin.bottom;
 var dateParse = d3.timeParse('%Y %b');
 <!-- var monthParse = d3.timeParse('%b'); -->
 var tooltipFormat = d3.timeFormat('%B %Y');
+var monthFormat = d3.timeFormat('%b');
 
 var x_scale = d3.scaleTime()
     .range([0, width]);
@@ -141,11 +142,11 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         });
 
         x_scale.domain(d3.extent(year_data, function(d) {
-            return dateParse(d.date).getMonth();
+            return monthFormat(dateParse(d.date));
         }));
 
         band_scale.domain(year_data.map(function(d) {
-            return dateParse(d.date).getMonth();
+            return monthFormat(dateParse(d.date));
         }));
 
         var lines = svg.selectAll('.line')
@@ -246,11 +247,11 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         
 
         x_scale.domain(d3.extent(year_data, function(d) {
-            return dateParse(d.date).getMonth();
+            return monthFormat(dateParse(d.date));
         }));
 
         band_scale.domain(year_data.map(function(d) {
-            return dateParse(d.date).getMonth();
+            return monthFormat(dateParse(d.date));
         }));
 
         var lines = svg.selectAll('.line')
