@@ -129,7 +129,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
 
 	draw("1983");
-	d3.select('svg').selectAll("line").enter().append('line').attr({"x1": dateParse("1963 JAN"), "y1":17500, "x2": dateParse("1963 DEC"), "y2":17500});
+	d3.select('svg').selectAll("line").enter().append('line').attr({"y1":17500, "y2":17500});
 
     function draw(year) {
 
