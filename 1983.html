@@ -223,58 +223,63 @@ d3.csv('usprice_cust.csv', function(csv_data) {
     }
     function addline(year) {
 
-        year_data = data.filter(function(d) {
+        
+		
+		year_data = data.filter(function(d) {
             return dateParse(d.date)
                 .getFullYear() === +year;
         });
+		
+		d3.select("svg").selectAll('line').data([year_data]).enter().append('line');
+		
 
-        x_scale.domain(d3.extent(year_data, function(d) {
-            return dateParse(d.date);
-        }));
+        <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
+            <!-- return dateParse(d.date); -->
+        <!-- })); -->
 
-        band_scale.domain(year_data.map(function(d) {
-            return dateParse(d.date);
-        }));
+        <!-- band_scale.domain(year_data.map(function(d) { -->
+            <!-- return dateParse(d.date); -->
+        <!-- })); -->
 
-        var lines = svg.selectAll('.line')
-            .data([year_data]);
+        <!-- var lines = svg.selectAll('.line') -->
+            <!-- .data([year_data]); -->
 
-        lines
+        <!-- lines -->
             <!-- .enter() -->
-            .append('path')
-            .attr('class', 'line')
-            .attr('fill', 'none')
-            .attr('stroke', 'black')
+            <!-- .append('path') -->
+            <!-- .attr('class', 'line') -->
+            <!-- .attr('fill', 'none') -->
+            <!-- .attr('stroke', 'black') -->
             <!-- .merge(lines) -->
-            .transition()
-            .attr('d', line);
+            <!-- .transition() -->
+            <!-- .attr('d', line); -->
 
-        var bars = svg.selectAll('.bar')
-            .data(year_data);
+        <!-- var bars = svg.selectAll('.bar') -->
+            <!-- .data(year_data); -->
 
-        bars
-            .exit()
-            .remove();
+        <!-- bars -->
+            <!-- .exit() -->
+            <!-- .remove(); -->
 
-        bars
-            .enter()
-            .append('rect')
-            .attr('class', 'bar')
-            .attr('x', function(d) {
-                return band_scale(dateParse(d.date));
-            })
-            .attr('width', band_scale.bandwidth())
-            .attr('height', height)
-            .attr('y', 0)
-            .attr('fill', 'black')
-            .attr('opacity', 0)
+        <!-- bars -->
+            <!-- .enter() -->
+            <!-- .append('rect') -->
+            <!-- .attr('class', 'bar') -->
+            <!-- .attr('x', function(d) { -->
+                <!-- return band_scale(dateParse(d.date)); -->
+            <!-- }) -->
+            <!-- .attr('width', band_scale.bandwidth()) -->
+            <!-- .attr('height', height) -->
+            <!-- .attr('y', 0) -->
+            <!-- .attr('fill', 'black') -->
+            <!-- .attr('opacity', 0) -->
 
-        d3.select('.x.axis')
-            .call(x_axis);
+        <!-- d3.select('.x.axis') -->
+            <!-- .call(x_axis); -->
 
-        d3.select('.y.axis')
-            .transition()
-            .call(y_axis);
+        <!-- d3.select('.y.axis') -->
+            <!-- .transition() -->
+            <!-- .call(y_axis); -->
 			}
 	 addline("1963");
 });	
