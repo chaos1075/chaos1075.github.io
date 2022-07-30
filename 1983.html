@@ -136,7 +136,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
         year_data = data.filter(function(d) {
             return dateParse(d.date)
-                .getFullYear() === +year;
+                .getFullYear() === +year || dateParse(d.date).getFullYear() === "1963" ;
         });
 
         x_scale.domain(d3.extent(year_data, function(d) {
