@@ -221,22 +221,25 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             draw(this.value);
         });
     }
-	addline("1963");
+    addline("1963");
     function addline(year) {
 
         
-		
-		year_data = data.filter(function(d) {
+        
+        year_data1 = data.filter(function(d) {
             return dateParse(d.date)
                 .getFullYear() === +year;
         });
-		
-		d3.select("svg").selectAll('line').data([year_data]).append('line')
-		    .attr('class', 'line')
-            .attr('fill', 'none')
-            .attr('stroke', 'grey')
-            .attr('d', line);
-		
+        
+        d3.select("svg").data([year_data1]).append('line')
+            .attr({"x1":20, "y1":20, "x2":250, "y2":250})
+    .style("stroke","red")
+    .style("stroke-width","4px");
+            <!-- .attr('class', 'line') -->
+            <!-- .attr('fill', 'none') -->
+            <!-- .attr('stroke', 'grey') -->
+            <!-- .attr('d', line); -->
+        
 
         <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
             <!-- return dateParse(d.date); -->
