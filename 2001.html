@@ -179,7 +179,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
             tooltip
                 .style('display', null)
-                .html('<p>Date: ' + displayDate + '<br>Median Price: ' + d.value + '%</p>');
+                .html('<p>Date: ' + displayDate + '<br>Median Price: $' + d.value + '</p>');
         };
 
         function mouseMove(d) {
