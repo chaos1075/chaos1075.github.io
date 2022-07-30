@@ -56,10 +56,12 @@
 
 
     <script>
-var width = document.getElementById('vis')
-    .clientWidth;
-var height = document.getElementById('vis')
-    .clientHeight;
+<!-- var width = document.getElementById('vis') -->
+    <!-- .clientWidth; -->
+<!-- var height = document.getElementById('vis') -->
+    <!-- .clientHeight; -->
+var width = 960;
+var height = 500;
 
 var margin = {
     top: 10,
@@ -195,7 +197,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
             tooltip
                 .style('display', null)
-                .html('<p>Date: ' + displayDate + '<br>Median Price: ' + d.value + '%</p>');
+                .html('<p>Date: ' + displayDate + '<br>Median Price: $' + d.value + '</p>');
         };
 
         function mouseMove(d) {
