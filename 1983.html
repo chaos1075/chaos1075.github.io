@@ -231,14 +231,11 @@ d3.csv('usprice_cust.csv', function(csv_data) {
                 .getFullYear() === +year;
         });
         
-        d3.select("svg").data([year_data1]).append('line')
-            .attr({"y":17500})
-    .style("stroke","red")
-    .style("stroke-width","4px");
-            <!-- .attr('class', 'line') -->
-            <!-- .attr('fill', 'none') -->
-            <!-- .attr('stroke', 'grey') -->
-            <!-- .attr('d', line); -->
+        d3.select("svg").data([year_data1]).append('path')
+            .attr('class', 'line')
+            .attr('fill', 'none')
+            .attr('stroke', 'grey')
+            .attr('d', line);
         
 
         <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
