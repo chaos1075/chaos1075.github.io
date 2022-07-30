@@ -124,7 +124,7 @@ svg.append('g')
 svg.append('g')
     .attr('class', 'y axis')
 
-svg.append('line').attr({"x1": dateParse("1983 JAN"), "y1":17500, "x2": dateParse("1983 DEC"), "y2":17500});
+svg.append('line').attr({"x1": dateParse("1983 JAN"), "y1":17500, "x2": dateParse("1983 DEC"), "y2":17500}).attr('stroke', 'red');
 
 d3.csv('usprice_cust.csv', function(csv_data) {
     data = csv_data;
