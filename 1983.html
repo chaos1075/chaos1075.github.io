@@ -136,7 +136,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
         year_data = data.filter(function(d) {
             return dateParse(d.date)
-                .getFullYear() === +year || dateParse(d.date).getFullYear() === +"1963" ;
+                .getFullYear() === +year;
         });
 
         x_scale.domain(d3.extent(year_data, function(d) {
@@ -227,43 +227,43 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 	
 	
 	
-    <!-- addline("1963"); -->
-    <!-- function addline(year) { -->
+    addline("1963");
+    function addline(year) {
 
         
         
-        <!-- year_data = data.filter(function(d) { -->
-            <!-- return dateParse(d.date) -->
-                <!-- .getFullYear() === +year; -->
-        <!-- }); -->
+        year_data1 = data.filter(function(d) {
+            return dateParse(d.date)
+                .getFullYear() === +year;
+        });
         
-        <!-- d3.select("svg").data([year_data1]).append('path') -->
-            <!-- .attr('class', 'line') -->
-            <!-- .attr('fill', 'none') -->
-            <!-- .attr('stroke', 'grey') -->
-            <!-- .attr('d', line); -->
+        d3.select("svg").data([year_data1]).append('path')
+            .attr('class', 'line')
+            .attr('fill', 'none')
+            .attr('stroke', 'grey')
+            .attr('d', line);
         
 
-        <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
-            <!-- return dateParse(d.date); -->
-        <!-- })); -->
+        x_scale.domain(d3.extent(year_data, function(d) {
+            return dateParse(d.date);
+        }));
 
-        <!-- band_scale.domain(year_data.map(function(d) { -->
-            <!-- return dateParse(d.date); -->
-        <!-- })); -->
+        band_scale.domain(year_data.map(function(d) {
+            return dateParse(d.date);
+        }));
 
-        <!-- var lines = svg.selectAll('.line') -->
-            <!-- .data([year_data]); -->
+        var lines = svg.selectAll('.line')
+            .data([year_data]);
 
-        <!-- lines -->
-            <!-- .enter() -->
-            <!-- .append('path') -->
-            <!-- .attr('class', 'line') -->
-            <!-- .attr('fill', 'none') -->
-            <!-- .attr('stroke', 'red') -->
-            <!-- .merge(lines) -->
-            <!-- .transition() -->
-            <!-- .attr('d', line); -->
+        lines
+            .enter()
+            .append('path')
+            .attr('class', 'line')
+            .attr('fill', 'none')
+            .attr('stroke', 'red')
+            .merge(lines)
+            .transition()
+            .attr('d', line);
 
         <!-- var bars = svg.selectAll('.bar') -->
             <!-- .data(year_data); -->
@@ -291,7 +291,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         <!-- d3.select('.y.axis') -->
             <!-- .transition() -->
             <!-- .call(y_axis); -->
-			<!-- } -->
+			}
 	 
 });	
 	
