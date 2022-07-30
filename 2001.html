@@ -28,6 +28,8 @@
 	<label for="year">Please select a year: </label>
     <input type="range" min="1963" max="2022" step=1 id="year" value="2014" oninput="selected_year.value = year.value">
     <output name="selected_year" id="selected_year">2014</output>
+    <div id="vis">
+    </div>
     <div class="pagination">
        <!-- <a href="#">&laquo;</a> -->
 	   <a class="active" href="index.html">0</a>
@@ -36,9 +38,6 @@
        <a href="2022.html">3</a>
        <a href="1990.html">&raquo;</a>
     </div>
-    <div id="vis">
-    </div>
-
 
     <script>
 var width = document.getElementById('vis')
@@ -202,7 +201,28 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         slider.on('change', function() {
             draw(this.value);
         });
-    }
+          const annotations = [
+        {
+          note: {
+            label: "triggered by Iraq's invasion of Kuwait, leading to the rise of oil price",
+            title: "Gulf war" //badges have an x of "left" or "right"
+          },
+          <!-- data: { x: "8/10/1990", y: 80.9}, -->
+          type: d3.annotationCalloutCircle,
+          subject: {
+             radius: 10,
+             radiusPadding: 1
+             },
+          color: ["red"],
+          data: { x: "2009 JUN", y: 2638},
+          <!-- x: "8/10/1990", -->
+          <!-- y: 80.9, -->
+          dy: -30,
+          dx: 30
+        }
+        ]
+	}
+	
 });	
 	
 	</script>
