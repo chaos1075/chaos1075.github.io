@@ -24,11 +24,21 @@
 </style>
 </head>
 <body>
-    <label for="year">Please select a year: </label>
+    <h1>US House Median Price<h1>
+	<label for="year">Please select a year: </label>
     <input type="range" min="1963" max="2022" step=1 id="year" value="2014" oninput="selected_year.value = year.value">
     <output name="selected_year" id="selected_year">2014</output>
     <div id="vis">
     </div>
+    <div class="pagination">
+       <!-- <a href="#">&laquo;</a> -->
+	   <a class="active" href="index.html">0</a>
+       <a href="2001.html">1</a>
+       <a href="2009.html">2</a>
+       <a href="2022.html">3</a>
+       <a href="1990.html">&raquo;</a>
+    </div>
+
     <script>
 var width = document.getElementById('vis')
     .clientWidth;
@@ -169,7 +179,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
             tooltip
                 .style('display', null)
-                .html('<p>Date: ' + displayDate + '<br>Unemployment Rate: ' + d.value + '%</p>');
+                .html('<p>Date: ' + displayDate + '<br>Median Price: ' + d.value + '%</p>');
         };
 
         function mouseMove(d) {
