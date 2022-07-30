@@ -221,6 +221,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             draw(this.value);
         });
     }
+	addline("1963");
     function addline(year) {
 
         
@@ -233,7 +234,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 		d3.select("svg").selectAll('line').data([year_data]).enter().append('line')
 		    .attr('class', 'line')
             .attr('fill', 'none')
-            .attr('stroke', 'black')
+            .attr('stroke', 'grey')
             .transition()
             .attr('d', line);;
 		
@@ -286,7 +287,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             <!-- .transition() -->
             <!-- .call(y_axis); -->
 			}
-	 addline("1963");
+	 
 });	
 	
 	</script>
