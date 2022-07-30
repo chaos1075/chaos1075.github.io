@@ -209,9 +209,9 @@
     const width = 960
     const height = 500
     const margin = { top: 120, bottom: 160, left: 50, right: 50}
-    const x = d3.scaleTime().range([margin.left, width - margin.right ])
+    x = d3.scaleTime().range([margin.left, width - margin.right ])
           .domain([new Date('1/1/' + output.innerHTML), new Date('7/18/2022') ])
-    const y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
+    y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
           .domain([0, 200])
 
     d3.csv("/data/Cushing_OK_WTI_Spot_Price_FOB.csv", function(data) {
