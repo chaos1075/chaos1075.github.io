@@ -246,7 +246,7 @@
         slider.on('change', function() {
             draw(this.value);
         });
-		}
+		
       annotations = [
         //moved recession annotation to front of array so it's behind 
         //the Macbook Air annotation
@@ -403,7 +403,7 @@
         .append("g")
         .attr("class", "annotation-group")
         .call(makeAnnotations)
-
+}
 
     });
     
