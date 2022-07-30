@@ -232,7 +232,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
         
         
-        year_data1 = data.filter(function(d) {
+        year_data = data.filter(function(d) {
             return dateParse(d.date)
                 .getFullYear() === +year;
         });
