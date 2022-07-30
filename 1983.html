@@ -157,7 +157,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .merge(lines)
             .transition()
             .attr('d', line);
-        svg.append('line').attr({"x1": dateParse("JAN 1963"), "y1":17500, "x2": dateParse("DEC 1963"), "y2":17500});
+        svg.append('line').attr({"x1": dateParse("1963 JAN"), "y1":17500, "x2": dateParse("1963 DEC"), "y2":17500});
 
         var bars = svg.selectAll('.bar')
             .data(year_data);
