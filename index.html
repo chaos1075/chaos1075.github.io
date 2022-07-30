@@ -209,13 +209,14 @@
     const width = 960
     const height = 500
     const margin = { top: 120, bottom: 160, left: 50, right: 50}
-    x = d3.scaleTime().range([margin.left, width - margin.right ])
-          .domain([new Date('1/1/' + slider.value), new Date('7/18/2022') ])
-    y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
-          .domain([0, 200])
 
     d3.csv("/data/Cushing_OK_WTI_Spot_Price_FOB.csv", function(data) {
 
+    function draw(year) {
+      x = d3.scaleTime().range([margin.left, width - margin.right ])
+            .domain([new Date('1/1/' + this.value), new Date('7/18/2022') ])
+      y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
+            .domain([0, 200])
       var line = d3.line()
         .x(function (d) {return x(new Date (d.date))})
         .y(function (d) {return y(d.price)})
@@ -240,7 +241,12 @@
         .attr("class", "axis x")
         .attr("transform", "translate(0,"+ (height - margin.bottom) +")")
         .call(xAxis);
-
+  
+  var slider = d3.select('#slider-year');
+        slider.on('change', function() {
+            draw(this.value);
+        });
+		}
       annotations = [
         //moved recession annotation to front of array so it's behind 
         //the Macbook Air annotation
