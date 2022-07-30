@@ -127,7 +127,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         return +d.value;
     })]);
 
-    draw("1963");
+    addline("1963");
 	draw("1983");
 
     function draw(year) {
@@ -154,7 +154,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .attr('class', 'line')
             .attr('fill', 'none')
             .attr('stroke', 'black')
-            <!-- .merge(lines) -->
+            .merge(lines)
             .transition()
             .attr('d', line);
 
@@ -221,6 +221,64 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             draw(this.value);
         });
     }
+    function addline(year) {
+
+        year_data = data.filter(function(d) {
+            return dateParse(d.date)
+                .getFullYear() === +year;
+        });
+
+        x_scale.domain(d3.extent(year_data, function(d) {
+            return dateParse(d.date);
+        }));
+
+        band_scale.domain(year_data.map(function(d) {
+            return dateParse(d.date);
+        }));
+
+        var lines = svg.selectAll('.line')
+            .data([year_data]);
+
+        lines
+            <!-- .enter() -->
+            .append('path')
+            .attr('class', 'line')
+            .attr('fill', 'none')
+            .attr('stroke', 'black')
+            <!-- .merge(lines) -->
+            .transition()
+            .attr('d', line);
+
+        var bars = svg.selectAll('.bar')
+            .data(year_data);
+
+        bars
+            .exit()
+            .remove();
+
+        bars
+            .enter()
+            .append('rect')
+            .attr('class', 'bar')
+            .attr('x', function(d) {
+                return band_scale(dateParse(d.date));
+            })
+            .attr('width', band_scale.bandwidth())
+            .attr('height', height)
+            .attr('y', 0)
+            .attr('fill', 'black')
+            .attr('opacity', 0)
+            .on('mouseover', mouseOver)
+            .on('mousemove', mouseMove)
+            .on('mouseout', mouseOut);
+
+        d3.select('.x.axis')
+            .call(x_axis);
+
+        d3.select('.y.axis')
+            .transition()
+            .call(y_axis);
+			}
 });	
 	
 	</script>
