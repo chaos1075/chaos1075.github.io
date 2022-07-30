@@ -56,7 +56,7 @@ var tooltip = d3.select('body')
 width = width - margin.left - margin.right;
 height = height - margin.top - margin.bottom;
 
-var dateParse = d3.timeParse('%Y %b');
+var dateParse = d3.timeParse('%b-%Y');
 var tooltipFormat = d3.timeFormat('%B %Y');
 
 var x_scale = d3.scaleTime()
@@ -92,7 +92,7 @@ svg.append('g')
 svg.append('g')
     .attr('class', 'y axis')
 
-d3.csv('test.csv', function(csv_data) {
+d3.csv('usprice_cust.csv', function(csv_data) {
     data = csv_data;
 
     y_scale.domain([0, d3.max(csv_data, function(d) {
