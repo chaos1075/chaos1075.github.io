@@ -220,7 +220,7 @@
         .x(function (d) {return x(new Date (d.date))})
         .y(function (d) {return y(d.price)})
 
-      const svg = d3.select("svg")
+      svg = d3.select("svg")
 
       svg.append('g')
         .attr('class', 'lineChart')
@@ -230,8 +230,8 @@
         .append("path")
         .attr("d", line)
 
-      const yAxis = d3.axisLeft(y).ticks(3).tickFormat(function(d){ return "$" + d})
-      const xAxis = d3.axisBottom(x)
+      yAxis = d3.axisLeft(y).ticks(3).tickFormat(function(d){ return "$" + d})
+      xAxis = d3.axisBottom(x)
       svg.append("g")
         .attr("class", "axis y")
         .attr("transform", "translate(" + margin.left + ", 0)")
@@ -241,7 +241,7 @@
         .attr("transform", "translate(0,"+ (height - margin.bottom) +")")
         .call(xAxis);
 
-      const annotations = [
+      annotations = [
         //moved recession annotation to front of array so it's behind 
         //the Macbook Air annotation
         {
@@ -380,12 +380,12 @@
         <!-- } -->
 		]
 
-      const type = d3.annotationCustomType(
+      type = d3.annotationCustomType(
         d3.annotationBadge, 
         {"subject":{"radius": 10 }}
       )
 
-      const makeAnnotations = d3.annotation()
+      makeAnnotations = d3.annotation()
         .type(type)
         .accessors({ 
           x: function(d){ return x(new Date(d.x))},
