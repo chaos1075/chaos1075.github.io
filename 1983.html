@@ -84,6 +84,8 @@ var tooltip = d3.select('body')
 width = width - margin.left - margin.right;
 height = height - margin.top - margin.bottom;
 
+const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
 var dateParse = d3.timeParse('%Y %b');
 <!-- var monthParse = d3.timeParse('%b'); -->
 var tooltipFormat = d3.timeFormat('%B %Y');
@@ -141,13 +143,15 @@ d3.csv('usprice_cust.csv', function(csv_data) {
                 .getFullYear() === +year;
         });
 
-        x_scale.domain(d3.extent(year_data, function(d) {
-            return monthFormat(dateParse(d.date));
-        }));
+        <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
+            <!-- return monthFormat(dateParse(d.date)); -->
+        <!-- })); -->
 
-        band_scale.domain(year_data.map(function(d) {
-            return monthFormat(dateParse(d.date));
-        }));
+        <!-- band_scale.domain(year_data.map(function(d) { -->
+            <!-- return monthFormat(dateParse(d.date)); -->
+        <!-- })); -->
+		x_scale.domain(month);
+		band_scale.domain(month);
 
         var lines = svg.selectAll('.line')
             .data([year_data]);
