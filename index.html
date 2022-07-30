@@ -213,9 +213,9 @@
     d3.csv("/data/Cushing_OK_WTI_Spot_Price_FOB.csv", function(data) {
 
     function draw(year) {
-      x = d3.scaleTime().range([margin.left, width - margin.right ])
+    var x = d3.scaleTime().range([margin.left, width - margin.right ])
             .domain([new Date('1/1/' + this.value), new Date('7/18/2022') ])
-      y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
+    var y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
             .domain([0, 200])
       var line = d3.line()
         .x(function (d) {return x(new Date (d.date))})
