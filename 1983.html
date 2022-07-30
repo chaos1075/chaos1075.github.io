@@ -122,12 +122,12 @@ svg.append('g')
 
 <!-- svg.append('line').attr({"x1": 0, "y1":0.5, "x2": 2009, "y2":0.5}); -->
 
-<!-- d3.csv('usprice_cust.csv', function(csv_data) { -->
-    <!-- data = csv_data; -->
+d3.csv('usprice_cust.csv', function(csv_data) {
+    data = csv_data;
 
-    <!-- y_scale.domain([0, d3.max(csv_data, function(d) { -->
-        <!-- return +d.value; -->
-    <!-- })]); -->
+    y_scale.domain([0, d3.max(csv_data, function(d) {
+        return +d.value;
+    })]);
 
 
 	<!-- draw("1983"); -->
@@ -184,12 +184,12 @@ svg.append('g')
             <!-- .on('mousemove', mouseMove) -->
             <!-- .on('mouseout', mouseOut); -->
 
-        d3.select('.x.axis')
-            .call(x_axis);
+        <!-- d3.select('.x.axis') -->
+            <!-- .call(x_axis); -->
 
-        d3.select('.y.axis')
-            .transition()
-            .call(y_axis);
+        <!-- d3.select('.y.axis') -->
+            <!-- .transition() -->
+            <!-- .call(y_axis); -->
 
         <!-- function mouseOver(d) { -->
             <!-- var date = dateParse(d.date); -->
