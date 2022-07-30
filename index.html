@@ -145,7 +145,10 @@
 <body>
     <svg width=960 height=500>
       <text class="title" x=40 y=50>Oil price impacted by major events</text>
-      <text x=40 y=80>1986/1/2-2022/7/18</text>
+      <!-- <text x=40 y=80>1986/1/2-2022/7/18</text> -->
+	  <label for="year">Please select a year: </label>
+      <input type="range" min=1975 max=2016 step=1 id="year" value=2014 oninput="selected_year.value = year.value">
+      <output name="selected_year" id="selected_year">2014</output>
     </svg>
 	<!-- <a class="button1" href="1990.html" role="button" onclick="setAll()" >1</button> -->
     <div class="pagination">
@@ -159,10 +162,11 @@
        <a href="2022.html">6</a>
        <a href="1990.html">&raquo;</a>
     </div>
-    <div class="slidecontainer">
-      <input type="range" min="1986" max="2022" value="2020" class="slider" id="slider-time">
-      <p>Year: <span id="demo"></span></p>
-    </div>
+
+    <!-- <div class="slidecontainer"> -->
+      <!-- <input type="range" min="1986" max="2022" value="2020" class="slider" id="slider-time"> -->
+      <!-- <p>Year: <span id="demo"></span></p> -->
+    <!-- </div> -->
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
     <script>
