@@ -154,7 +154,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .attr('class', 'line')
             .attr('fill', 'none')
             .attr('stroke', 'black')
-            .merge(lines)
+            <!-- .merge(lines) -->
             .transition()
             .attr('d', line);
 
