@@ -210,7 +210,7 @@
     const height = 500
     const margin = { top: 120, bottom: 160, left: 50, right: 50}
     x = d3.scaleTime().range([margin.left, width - margin.right ])
-          .domain([new Date('1/1/' + output.innerHTML), new Date('7/18/2022') ])
+          .domain([new Date('1/1/' + slider.value), new Date('7/18/2022') ])
     y = d3.scaleLinear().range([height - margin.bottom, margin.top ])
           .domain([0, 200])
 
