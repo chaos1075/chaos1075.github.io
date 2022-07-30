@@ -130,100 +130,100 @@ d3.csv('usprice_cust.csv', function(csv_data) {
     })]);
 
 
-	<!-- draw("1983"); -->
+	draw("1983");
 
-    <!-- function draw(year) { -->
+    function draw(year) {
 
-        <!-- year_data = data.filter(function(d) { -->
-            <!-- return dateParse(d.date) -->
-                <!-- .getFullYear() === +year; -->
-        <!-- }); -->
+        year_data = data.filter(function(d) {
+            return dateParse(d.date)
+                .getFullYear() === +year;
+        });
 
-        <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
-            <!-- return dateParse(d.date); -->
-        <!-- })); -->
+        x_scale.domain(d3.extent(year_data, function(d) {
+            return dateParse(d.date);
+        }));
 
-        <!-- band_scale.domain(year_data.map(function(d) { -->
-            <!-- return dateParse(d.date); -->
-        <!-- })); -->
+        band_scale.domain(year_data.map(function(d) {
+            return dateParse(d.date);
+        }));
 
-        <!-- var lines = svg.selectAll('.line') -->
-            <!-- .data([year_data]); -->
+        var lines = svg.selectAll('.line')
+            .data([year_data]);
 
-        <!-- lines -->
-            <!-- .enter() -->
-            <!-- .append('path') -->
-            <!-- .attr('class', 'line') -->
-            <!-- .attr('fill', 'none') -->
-            <!-- .attr('stroke', 'black') -->
-            <!-- .merge(lines) -->
-            <!-- .transition() -->
-            <!-- .attr('d', line); -->
+        lines
+            .enter()
+            .append('path')
+            .attr('class', 'line')
+            .attr('fill', 'none')
+            .attr('stroke', 'black')
+            .merge(lines)
+            .transition()
+            .attr('d', line);
         
 
-        <!-- var bars = svg.selectAll('.bar') -->
-            <!-- .data(year_data); -->
+        var bars = svg.selectAll('.bar')
+            .data(year_data);
 
-        <!-- bars -->
-            <!-- .exit() -->
-            <!-- .remove(); -->
+        bars
+            .exit()
+            .remove();
 
-        <!-- bars -->
-            <!-- .enter() -->
-            <!-- .append('rect') -->
-            <!-- .attr('class', 'bar') -->
-            <!-- .attr('x', function(d) { -->
-                <!-- return band_scale(dateParse(d.date)); -->
-            <!-- }) -->
-            <!-- .attr('width', band_scale.bandwidth()) -->
-            <!-- .attr('height', height) -->
-            <!-- .attr('y', 0) -->
-            <!-- .attr('fill', 'black') -->
-            <!-- .attr('opacity', 0) -->
-            <!-- .on('mouseover', mouseOver) -->
-            <!-- .on('mousemove', mouseMove) -->
-            <!-- .on('mouseout', mouseOut); -->
+        bars
+            .enter()
+            .append('rect')
+            .attr('class', 'bar')
+            .attr('x', function(d) {
+                return band_scale(dateParse(d.date));
+            })
+            .attr('width', band_scale.bandwidth())
+            .attr('height', height)
+            .attr('y', 0)
+            .attr('fill', 'black')
+            .attr('opacity', 0)
+            .on('mouseover', mouseOver)
+            .on('mousemove', mouseMove)
+            .on('mouseout', mouseOut);
 
-        <!-- d3.select('.x.axis') -->
-            <!-- .call(x_axis); -->
+        d3.select('.x.axis')
+            .call(x_axis);
 
-        <!-- d3.select('.y.axis') -->
-            <!-- .transition() -->
-            <!-- .call(y_axis); -->
+        d3.select('.y.axis')
+            .transition()
+            .call(y_axis);
 
-        <!-- function mouseOver(d) { -->
-            <!-- var date = dateParse(d.date); -->
-            <!-- var displayDate = tooltipFormat(date); -->
+        function mouseOver(d) {
+            var date = dateParse(d.date);
+            var displayDate = tooltipFormat(date);
 
-            <!-- d3.select(this) -->
-                <!-- .transition() -->
-                <!-- .style('opacity', 0.3); -->
+            d3.select(this)
+                .transition()
+                .style('opacity', 0.3);
 
-            <!-- tooltip -->
-                <!-- .style('display', null) -->
-                <!-- .html('<p>Date: ' + displayDate + '<br>Median Price: $' + d.value + '</p>'); -->
-        <!-- }; -->
+            tooltip
+                .style('display', null)
+                .html('<p>Date: ' + displayDate + '<br>Median Price: $' + d.value + '</p>');
+        };
 
-        <!-- function mouseMove(d) { -->
-            <!-- tooltip -->
-                <!-- .style('top', (d3.event.pageY - 20) + "px") -->
-                <!-- .style('left', (d3.event.pageX + 20) + "px"); -->
-        <!-- }; -->
+        function mouseMove(d) {
+            tooltip
+                .style('top', (d3.event.pageY - 20) + "px")
+                .style('left', (d3.event.pageX + 20) + "px");
+        };
 
-        <!-- function mouseOut(d) { -->
-            <!-- d3.select(this) -->
-                <!-- .transition() -->
-                <!-- .style('opacity', 0) -->
+        function mouseOut(d) {
+            d3.select(this)
+                .transition()
+                .style('opacity', 0)
 
-            <!-- tooltip -->
-                <!-- .style('display', 'none'); -->
-        <!-- }; -->
+            tooltip
+                .style('display', 'none');
+        };
 
-        <!-- var slider = d3.select('#year'); -->
-        <!-- slider.on('change', function() { -->
-            <!-- draw(this.value); -->
-        <!-- }); -->
-    <!-- }; -->
+        var slider = d3.select('#year');
+        slider.on('change', function() {
+            draw(this.value);
+        });
+    };
 	
 	
 	
@@ -260,37 +260,37 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .append('path')
             .attr('class', 'line')
             .attr('fill', 'none')
-            .attr('stroke', 'black')
+            .attr('stroke', 'red')
             .merge(lines)
             .transition()
             .attr('d', line);
 
-        var bars = svg.selectAll('.bar')
-            .data(year_data);
+        <!-- var bars = svg.selectAll('.bar') -->
+            <!-- .data(year_data); -->
 
-        bars
-            .exit()
-            .remove();
+        <!-- bars -->
+            <!-- .exit() -->
+            <!-- .remove(); -->
 
-        bars
-            .enter()
-            .append('rect')
-            .attr('class', 'bar')
-            .attr('x', function(d) {
-                return band_scale(dateParse(d.date));
-            })
-            .attr('width', band_scale.bandwidth())
-            .attr('height', height)
-            .attr('y', 0)
-            .attr('fill', 'black')
-            .attr('opacity', 0)
+        <!-- bars -->
+            <!-- .enter() -->
+            <!-- .append('rect') -->
+            <!-- .attr('class', 'bar') -->
+            <!-- .attr('x', function(d) { -->
+                <!-- return band_scale(dateParse(d.date)); -->
+            <!-- }) -->
+            <!-- .attr('width', band_scale.bandwidth()) -->
+            <!-- .attr('height', height) -->
+            <!-- .attr('y', 0) -->
+            <!-- .attr('fill', 'black') -->
+            <!-- .attr('opacity', 0) -->
 
-        d3.select('.x.axis')
-            .call(x_axis);
+        <!-- d3.select('.x.axis') -->
+            <!-- .call(x_axis); -->
 
-        d3.select('.y.axis')
-            .transition()
-            .call(y_axis);
+        <!-- d3.select('.y.axis') -->
+            <!-- .transition() -->
+            <!-- .call(y_axis); -->
 			}
 	 
 });	
