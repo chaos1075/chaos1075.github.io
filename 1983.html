@@ -127,7 +127,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         return +d.value;
     })]);
 
-    addline("1963");
+
 	draw("1983");
 
     function draw(year) {
@@ -276,6 +276,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .transition()
             .call(y_axis);
 			}
+	 addline("1963");
 });	
 	
 	</script>
