@@ -230,7 +230,12 @@ d3.csv('usprice_cust.csv', function(csv_data) {
                 .getFullYear() === +year;
         });
 		
-		d3.select("svg").selectAll('line').data([year_data]).enter().append('line');
+		d3.select("svg").selectAll('line').data([year_data]).enter().append('line')
+		    .attr('class', 'line')
+            .attr('fill', 'none')
+            .attr('stroke', 'black')
+            .transition()
+            .attr('d', line);;
 		
 
         <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
