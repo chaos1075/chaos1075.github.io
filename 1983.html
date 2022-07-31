@@ -176,7 +176,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .append('path')
             .attr('class', 'line')
             .attr('fill', 'none')
-            .attr('stroke', 'black')
+            .attr('stroke', 'red')
             .merge(lines)
             .transition()
             .attr('d', line);
@@ -186,7 +186,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .append('path')
             .attr('class', 'line')
             .attr('fill', 'none')
-            .attr('stroke', 'red')
+            .attr('stroke', 'grey')
             .merge(lines)
             .transition()
             .attr('d', line2);        
