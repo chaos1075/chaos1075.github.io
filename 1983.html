@@ -133,7 +133,7 @@
 	   <!-- <line x1="50" y1="80" x2="250" y2="250" stroke="black" /> -->
     <!-- </div> -->
     <svg id="vis">
-	   <line x1="50" y1="80" x2="250" y2="250" stroke="black" />
+	   <!-- <line x1="50" y1="80" x2="250" y2="250" stroke="black" /> -->
     </svg>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
@@ -260,15 +260,15 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .transition()
             .attr('d', line);
 
-        <!-- lines -->
-            <!-- .enter() -->
-            <!-- .append('path') -->
-            <!-- .attr('class', 'line') -->
-            <!-- .attr('fill', 'none') -->
-            <!-- .attr('stroke', 'grey') -->
-            <!-- .merge(lines) -->
-            <!-- .transition() -->
-            <!-- .attr('d', line2); -->
+        lines
+            .enter()
+            .append('path')
+            .attr('class', 'line')
+            .attr('fill', 'none')
+            .attr('stroke', 'grey')
+            .merge(lines)
+            .transition()
+            .attr('d', line2);
 
         var bars = svg.selectAll('.bar')
             .data(year_data);
@@ -299,7 +299,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         d3.select('.y.axis')
             .transition()
             .call(y_axis);
-		d3.select('svg').append('line').attr({"x1": 0, "y1":300, "x2": 200, "y2":300});
+		<!-- d3.select('svg').append('line').attr({"x1": 0, "y1":300, "x2": 200, "y2":300}); -->
 
 
         function mouseOver(d) {
@@ -347,7 +347,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
              radiusPadding: 1
              },
           <!-- color: ["red"], -->
-          data: { date: "1983 JUN", close: 17500},
+          data: { x: 100, y: 200},
           dy: 30,
           dx: 30
         }
@@ -355,8 +355,8 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
       const makeAnnotations = d3.annotation()
         .accessors({ 
-          x_scale: function(d){ return x_scale(dateParse(d.date))},
-          y_scale: function(d){ return y_scale(d.close) }
+          x_scale: function(d){ return x_scale(d.x)},
+          y_scale: function(d){ return y_scale(d.y) }
 		  <!-- x: function(d){ return x(d.x)}, -->
           <!-- y: function(d){ return y(d.y) } -->
         })
