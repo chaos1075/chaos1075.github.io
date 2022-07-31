@@ -41,7 +41,7 @@
      }
 
     :root {
-      <!-- --line-chart-color: #607D8B; -->
+      --line-chart-color: #607D8B;
       --annotation-context-color: #546E7A;
       --annotation-badge-color:red;
       --annotation-color: white;
@@ -56,9 +56,9 @@
        <!-- fill: var(--line-chart-color); -->
      <!-- } -->
 
-     <!-- .axis line, path { -->
-      <!-- stroke: var(--line-chart-color); -->
-     <!-- } -->
+     .axis line, path {
+      stroke: var(--line-chart-color);
+     }
 
      path {
        fill: none;
@@ -256,15 +256,15 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .transition()
             .attr('d', line);
 
-        <!-- lines -->
-            <!-- .enter() -->
-            <!-- .append('path') -->
-            <!-- .attr('class', 'line') -->
-            <!-- .attr('fill', 'none') -->
-            <!-- .attr('stroke', 'grey') -->
-            <!-- .merge(lines) -->
-            <!-- .transition() -->
-            <!-- .attr('d', line2); -->
+        lines
+            .enter()
+            .append('path')
+            .attr('class', 'line')
+            .attr('fill', 'none')
+            .attr('stroke', 'grey')
+            .merge(lines)
+            .transition()
+            .attr('d', line2);
 
         var bars = svg.selectAll('.bar')
             .data(year_data);
@@ -295,7 +295,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         d3.select('.y.axis')
             .transition()
             .call(y_axis);
-		d3.select('svg').append('line').attr({"x1": 0, "y1":300, "x2": 200, "y2":300});
+		<!-- d3.select('svg').append('line').attr({"x1": 0, "y1":300, "x2": 200, "y2":300}); -->
 
 
         function mouseOver(d) {
@@ -344,8 +344,8 @@ d3.csv('usprice_cust.csv', function(csv_data) {
              },
           <!-- color: ["red"], -->
           data: { date: "1983 JUN", close: 250},
-          dy: 300,
-          dx: 250
+          dy: 250,
+          dx: 300
         }
         ]
 
