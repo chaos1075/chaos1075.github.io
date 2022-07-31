@@ -168,8 +168,6 @@ var tooltip = d3.select('body')
 width = width - margin.left - margin.right;
 height = height - margin.top - margin.bottom;
 
-<!-- const month = ["January","February","March","April","May","June","July","August","September","October","November","December"]; -->
-
 var dateParse = d3.timeParse('%Y %b');
 var tooltipFormat = d3.timeFormat('%B %Y');
 
@@ -262,15 +260,15 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .transition()
             .attr('d', line);
 
-        lines
-            .enter()
-            .append('path')
-            .attr('class', 'line')
-            .attr('fill', 'none')
-            .attr('stroke', 'grey')
-            .merge(lines)
-            .transition()
-            .attr('d', line2);
+        <!-- lines -->
+            <!-- .enter() -->
+            <!-- .append('path') -->
+            <!-- .attr('class', 'line') -->
+            <!-- .attr('fill', 'none') -->
+            <!-- .attr('stroke', 'grey') -->
+            <!-- .merge(lines) -->
+            <!-- .transition() -->
+            <!-- .attr('d', line2); -->
 
         var bars = svg.selectAll('.bar')
             .data(year_data);
@@ -301,7 +299,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         d3.select('.y.axis')
             .transition()
             .call(y_axis);
-		<!-- d3.select('svg').append('line').attr({"x1": 0, "y1":300, "x2": 200, "y2":300}); -->
+		d3.select('svg').append('line').attr({"x1": 0, "y1":300, "x2": 200, "y2":300});
 
 
         function mouseOver(d) {
@@ -349,15 +347,15 @@ d3.csv('usprice_cust.csv', function(csv_data) {
              radiusPadding: 1
              },
           <!-- color: ["red"], -->
-          data: { date: "1983 JUN", close: 250},
-          dy: 270,
-          dx: 300
+          data: { date: 200, close: 250},
+          dy: 30,
+          dx: 30
         }
         ]
 
       const makeAnnotations = d3.annotation()
         .accessors({ 
-          x_scale: function(d){ return x(dateParse(d.date))},
+          x_scale: function(d){ return x(d.date)},
           y_scale: function(d){ return y(d.close) }
 		  <!-- x: function(d){ return x(d.x)}, -->
           <!-- y: function(d){ return y(d.y) } -->
