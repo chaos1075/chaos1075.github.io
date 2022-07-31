@@ -321,46 +321,36 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             <!-- .transition() -->
             <!-- .call(y_axis); -->
 			<!-- } -->
-      const annotations = [
-        {
-          note: {
-            label: "triggered by Iraq's invasion of Kuwait, leading to the rise of oil price",
-            title: "Gulf war" //badges have an x of "left" or "right"
-          },
-          <!-- data: { x: "8/10/1990", y: 80.9}, -->
-          type: d3.annotationCalloutCircle,
-          subject: {
-             radius: 10,
-             radiusPadding: 1
-             },
-          color: ["red"],
-          data: { x: "1963 JUN", y: 17500},
-          <!-- x: "8/10/1990", -->
-          <!-- y: 80.9, -->
-          dy: -30,
-          dx: 30
-        }
-        ]
+			
+      <!-- const annotations = [ -->
+        <!-- { -->
+          <!-- note: { -->
+            <!-- label: "triggered by Iraq's invasion of Kuwait, leading to the rise of oil price", -->
+            <!-- title: "Gulf war" //badges have an x of "left" or "right" -->
+          <!-- }, -->
+          <!-- type: d3.annotationCalloutCircle, -->
+          <!-- subject: { -->
+             <!-- radius: 10, -->
+             <!-- radiusPadding: 1 -->
+             <!-- }, -->
+          <!-- color: ["red"], -->
+          <!-- data: { x: "1963 JUN", y: 17500}, -->
+          <!-- dy: -30, -->
+          <!-- dx: 30 -->
+        <!-- } -->
+        <!-- ] -->
 
-      <!-- const type = d3.annotationCustomType( -->
-        <!-- d3.annotationCalloutCircle,  -->
-        <!-- {"subject":{ -->
-                   <!-- "radius": 10, -->
-                   <!-- "radiusPadding": 5}} -->
-      <!-- ) -->
+      <!-- const makeAnnotations = d3.annotation() -->
+        <!-- .accessors({  -->
+          <!-- x: function(d){ return x(new Date(d.x))}, -->
+          <!-- y: function(d){ return y(d.y) } -->
+        <!-- }) -->
+        <!-- .annotations(annotations) -->
 
-      const makeAnnotations = d3.annotation()
-        <!-- .type(type) -->
-        .accessors({ 
-          x: function(d){ return x(new Date(d.x))},
-          y: function(d){ return y(d.y) }
-        })
-        .annotations(annotations)
-
-      d3.select("svg")
-        .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+      <!-- d3.select("svg") -->
+        <!-- .append("g") -->
+        <!-- .attr("class", "annotation-group") -->
+        <!-- .call(makeAnnotations) -->
 			
 });	
 
