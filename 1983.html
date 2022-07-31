@@ -330,8 +330,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         slider.on('change', function() {
             draw(this.value);
         });
-    };
-				
+		
       const annotations = [
         {
           note: {
@@ -362,6 +361,9 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         .attr("class", "annotation-group")
         .call(makeAnnotations)
 
+		
+    };
+				
 			
 });	
 
