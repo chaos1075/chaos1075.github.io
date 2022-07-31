@@ -256,15 +256,15 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .transition()
             .attr('d', line);
 
-        lines
-            .enter()
-            .append('path')
-            .attr('class', 'line')
-            .attr('fill', 'none')
-            .attr('stroke', 'grey')
-            .merge(lines)
-            .transition()
-            .attr('d', line2);
+        <!-- lines -->
+            <!-- .enter() -->
+            <!-- .append('path') -->
+            <!-- .attr('class', 'line') -->
+            <!-- .attr('fill', 'none') -->
+            <!-- .attr('stroke', 'grey') -->
+            <!-- .merge(lines) -->
+            <!-- .transition() -->
+            <!-- .attr('d', line2); -->
 
         var bars = svg.selectAll('.bar')
             .data(year_data);
