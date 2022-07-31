@@ -179,23 +179,6 @@ var y2_scale = d3.scaleLinear()
 var band_scale = d3.scaleBand()
     .range([0, width]);
 
-var line = d3.line()
-    .x(function(d) {
-        return x_scale(dateParse(d.date));
-    })
-    .y(function(d) {
-        return y_scale(+d.value);
-    })
-    .curve(d3.curveBasis);
-
-var line2 = d3.line()
-    .x(function(d) {
-        return x_scale(dateParse(d.date));
-    })
-    .y(function(d) {
-        return y2_scale(+d.constant);
-    })
-    .curve(d3.curveBasis);
 
 var x_axis = d3.axisBottom()
     .scale(x_scale);
@@ -233,6 +216,23 @@ d3.csv('usprice_cust.csv', function(csv_data) {
                 .getFullYear() === +year;
         });
 
+		var line = d3.line()
+			.x(function(d) {
+				return x_scale(dateParse(d.date));
+			})
+			.y(function(d) {
+				return y_scale(+d.value);
+			})
+			.curve(d3.curveBasis);
+
+		var line2 = d3.line()
+			.x(function(d) {
+				return x_scale(dateParse(d.date));
+			})
+			.y(function(d) {
+				return y2_scale(+d.constant);
+			})
+			.curve(d3.curveBasis);
 
         x_scale.domain(d3.extent(year_data, function(d) {
             return dateParse(d.date);
@@ -343,7 +343,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
              radiusPadding: 1
              },
           color: ["red"],
-          data: { x: 500, y: 17500},
+          data: { x: "1983 JUN", y: 17500},
           dy: 30,
           dx: 30
         }
