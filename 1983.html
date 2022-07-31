@@ -125,8 +125,8 @@
 	   <a class="active" href="index.html">0</a>
        <a href="1963.html">1</a>
        <a href="1983.html">2</a>
-       <a href="2022.html">3</a>
-       <a href="1990.html">&raquo;</a>
+       <a href="2003.html">3</a>
+       <a href="2020.html">&raquo;</a>
     </div>
     <div id="vis">
     </div>
@@ -165,17 +165,15 @@ height = height - margin.top - margin.bottom;
 <!-- const month = ["January","February","March","April","May","June","July","August","September","October","November","December"]; -->
 
 var dateParse = d3.timeParse('%Y %b');
-<!-- var monthParse = d3.timeParse('%b'); -->
 var tooltipFormat = d3.timeFormat('%B %Y');
-var monthFormat = d3.timeFormat('%b');
 
-var x_scale = d3.scaleTime()
+const x_scale = d3.scaleTime()
     .range([0, width]);
 
-var y_scale = d3.scaleLinear()
+const y_scale = d3.scaleLinear()
     .range([height, 0]);
 	
-var y2_scale = d3.scaleLinear()
+const y2_scale = d3.scaleLinear()
     .range([height, 0]);
 
 var band_scale = d3.scaleBand()
@@ -333,75 +331,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             draw(this.value);
         });
     };
-	
-	
-	
-    <!-- addline("1963"); -->
-    <!-- function addline(year) { -->
-
-        
-        
-        <!-- year_data1 = data.filter(function(d) { -->
-            <!-- return dateParse(d.date) -->
-                <!-- .getFullYear() === +year; -->
-        <!-- }); -->
-        
-        <!-- d3.select("svg").data([year_data1]).append('path') -->
-            <!-- .attr('class', 'line') -->
-            <!-- .attr('fill', 'none') -->
-            <!-- .attr('stroke', 'grey') -->
-            <!-- .attr('d', line); -->
-        
-
-        <!-- x_scale.domain(d3.extent(year_data, function(d) { -->
-            <!-- return monthFormat(dateParse(d.date)); -->
-        <!-- })); -->
-
-        <!-- band_scale.domain(year_data.map(function(d) { -->
-            <!-- return monthFormat(dateParse(d.date)); -->
-        <!-- })); -->
-
-        <!-- var lines = svg.selectAll('.line') -->
-            <!-- .data([year_data]); -->
-
-        <!-- lines -->
-            <!-- .enter() -->
-            <!-- .append('path') -->
-            <!-- .attr('class', 'line') -->
-            <!-- .attr('fill', 'none') -->
-            <!-- .attr('stroke', 'red') -->
-            <!-- .merge(lines) -->
-            <!-- .transition() -->
-            <!-- .attr('d', line); -->
-
-        <!-- var bars = svg.selectAll('.bar') -->
-            <!-- .data(year_data); -->
-
-        <!-- bars -->
-            <!-- .exit() -->
-            <!-- .remove(); -->
-
-        <!-- bars -->
-            <!-- .enter() -->
-            <!-- .append('rect') -->
-            <!-- .attr('class', 'bar') -->
-            <!-- .attr('x', function(d) { -->
-                <!-- return band_scale(dateParse(d.date)); -->
-            <!-- }) -->
-            <!-- .attr('width', band_scale.bandwidth()) -->
-            <!-- .attr('height', height) -->
-            <!-- .attr('y', 0) -->
-            <!-- .attr('fill', 'black') -->
-            <!-- .attr('opacity', 0) -->
-
-        <!-- d3.select('.x.axis') -->
-            <!-- .call(x_axis); -->
-
-        <!-- d3.select('.y.axis') -->
-            <!-- .transition() -->
-            <!-- .call(y_axis); -->
-			<!-- } -->
-			
+				
       const annotations = [
         {
           note: {
