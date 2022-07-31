@@ -231,7 +231,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .append('path')
             .attr('class', 'line')
             .attr('fill', 'none')
-            .attr('stroke', 'black')
+            .attr('stroke', 'red')
             .merge(lines)
             .transition()
             .attr('d', line);
@@ -302,7 +302,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         {
           note: {
             label: "Housing median price at relatively low level.",
-            title: "in 1963" //badges have an x of "left" or "right"
+            title: "In 1963" //badges have an x of "left" or "right"
           },
           type: d3.annotationCalloutCircle,
           subject: {
@@ -311,7 +311,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
              },
           <!-- color: ["red"], -->
           data: { x: 100, y: 200},
-          dy: 200,
+          dy: 250,
           dx: 300
         }
         ]
