@@ -392,15 +392,15 @@ d3.csv('usprice_cust.csv', function(csv_data) {
              },
           color: ["red"],
           data: { x_scale: "1983 JUN", y_scale: 17500},
-          dy: -30,
-          dx: 30
+          dy: 0,
+          dx: 0
         }
         ]
 
       const makeAnnotations = d3.annotation()
         .accessors({ 
-          x_scale: function(d){ return x_scale(dateParse(d.date))},
-          y_scale: function(d){ return y_scale(+d.value) }
+          x_scale: function(d){ return x(new Date(d.x))},
+          y_scale: function(d){ return y(d.y) }
         })
         .annotations(annotations)
 
