@@ -43,7 +43,7 @@
     :root {
       --line-chart-color: #607D8B;
       --annotation-context-color: #546E7A;
-      --annotation-badge-color:red;
+      --annotation-badge-color:blue;
       --annotation-color: white;
     }
 
@@ -85,7 +85,7 @@
 
     svg .annotation.rect text {
       fill: var(--annotation-context-color);
-      font-size: .6em;
+      font-size: .4em;
       text-transform: uppercase;
     }
 
@@ -344,7 +344,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
              },
           <!-- color: ["red"], -->
           data: { date: "1983 JUN", close: 250},
-          dy: 250,
+          dy: 270,
           dx: 300
         }
         ]
