@@ -36,6 +36,33 @@
 	.pagination a:hover:not(.active) {background-color: #ddd;}
 
     }
+     body{
+        background-color: whitesmoke;
+     }
+
+    :root {
+      --line-chart-color: #607D8B;
+      --annotation-context-color: #546E7A;
+      --annotation-badge-color:white;
+      --annotation-color: #E8336D;
+    }
+
+     svg {
+        background-color: white;
+        font-family: 'Lato';
+     }
+
+     .axis, .axis text {
+       fill: var(--line-chart-color);
+     }
+
+     .axis line, path {
+      stroke: var(--line-chart-color);
+     }
+
+     path {
+       fill: none;
+     }
     .annotation path {
       stroke: var(--annotation-badge-color);
     }
@@ -388,8 +415,8 @@ d3.csv('usprice_cust.csv', function(csv_data) {
              },
           color: ["red"],
           data: { x_scale: "1983 JUN", y_scale: 17500},
-          dy: 0,
-          dx: 0
+          dy: 300,
+          dx: 400
         }
         ]
 
