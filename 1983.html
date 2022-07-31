@@ -239,8 +239,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             .attr('stroke', 'grey')
             .merge(lines)
             .transition()
-            <!-- .attr('d', line2); -->
-            .attr({"x1": dateParse("1963 JAN"), "y1":17500, "x2": dateParse("2022 DEC"), "y2":17500});			
+            .attr('d', line2);
 
         var bars = svg.selectAll('.bar')
             .data(year_data);
@@ -271,7 +270,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         d3.select('.y.axis')
             .transition()
             .call(y_axis);
-		d3.select('svg').append('line').attr({"x1": dateParse("1963 JAN"), "y1":17500, "x2": dateParse("2022 DEC"), "y2":17500});
+		<!-- d3.select('svg').append('line').attr({"x1": dateParse("1963 JAN"), "y1":17500, "x2": dateParse("2022 DEC"), "y2":17500}); -->
 
 
         function mouseOver(d) {
@@ -376,10 +375,6 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             <!-- .call(y_axis); -->
 			<!-- } -->
 			
-
-			
-});	
-
       const annotations = [
         {
           note: {
@@ -409,6 +404,10 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         .append("g")
         .attr("class", "annotation-group")
         .call(makeAnnotations)
+
+			
+});	
+
 	
 	</script>
 </body>
