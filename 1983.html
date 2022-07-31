@@ -167,13 +167,13 @@ height = height - margin.top - margin.bottom;
 var dateParse = d3.timeParse('%Y %b');
 var tooltipFormat = d3.timeFormat('%B %Y');
 
-const x_scale = d3.scaleTime()
+var x_scale = d3.scaleTime()
     .range([0, width]);
 
-const y_scale = d3.scaleLinear()
+var y_scale = d3.scaleLinear()
     .range([height, 0]);
 	
-const y2_scale = d3.scaleLinear()
+var y2_scale = d3.scaleLinear()
     .range([height, 0]);
 
 var band_scale = d3.scaleBand()
@@ -335,7 +335,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
       const annotations = [
         {
           note: {
-            label: "Housing median price increased by 57500, about 329%",
+            label: "Housing median price increased by 57,500, about 329%",
             title: "From 60s to 80s" //badges have an x of "left" or "right"
           },
           type: d3.annotationCalloutCircle,
