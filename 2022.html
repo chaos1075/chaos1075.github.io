@@ -118,15 +118,15 @@
 <body>
     <h1>US House Median Price</h1>
 	<label for="year">Please select a year: </label>
-    <input type="range" min="1963" max="2022" step=1 id="year" value="1983" oninput="selected_year.value = year.value">
-    <output name="selected_year" id="selected_year">1983</output>
+    <input type="range" min="1963" max="2022" step=1 id="year" value="2022" oninput="selected_year.value = year.value">
+    <output name="selected_year" id="selected_year">2022</output>
     <div class="pagination">
        <!-- <a href="#">&laquo;</a> -->
 	   <a class="active" href="index.html">0</a>
        <a href="1963.html">1</a>
        <a href="1983.html">2</a>
        <a href="2003.html">3</a>
-       <a href="2020.html">&raquo;</a>
+       <a href="2022.html">&raquo;</a>
     </div>
     <div id="vis">
     </div>
@@ -207,7 +207,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
         return +d.value;
     })]);
 
-	draw("1983");
+	draw("2022");
 
     function draw(year) {
 
@@ -334,8 +334,8 @@ d3.csv('usprice_cust.csv', function(csv_data) {
       const annotations = [
         {
           note: {
-            label: "Housing median price increased by 57,500, about 329%",
-            title: "From 1960s to 1980s" //badges have an x of "left" or "right"
+            label: "Housing median price increased by 210,000, about 329%",
+            title: "From 2000s to 2020s" //badges have an x of "left" or "right"
           },
           type: d3.annotationCalloutCircle,
           subject: {
