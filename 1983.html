@@ -146,7 +146,7 @@ d3.csv('usprice_cust.csv', function(csv_data) {
     })]);
 
 	y2_scale.domain([0, d3.max(csv_data, function(d) {
-        return +d.constant;
+        return +d.value;
     })]);
 
 	draw("1983");
