@@ -355,8 +355,8 @@ d3.csv('usprice_cust.csv', function(csv_data) {
 
       const makeAnnotations = d3.annotation()
         .accessors({ 
-          x_scale: function(d){ return x(d.date)},
-          y_scale: function(d){ return y(d.close) }
+          x_scale: function(d){ return x_scale(d.date)},
+          y_scale: function(d){ return y_scale(d.close) }
 		  <!-- x: function(d){ return x(d.x)}, -->
           <!-- y: function(d){ return y(d.y) } -->
         })
