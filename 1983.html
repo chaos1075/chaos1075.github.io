@@ -325,39 +325,39 @@ d3.csv('usprice_cust.csv', function(csv_data) {
             <!-- .call(y_axis); -->
 			<!-- } -->
 			
-      <!-- const annotations = [ -->
-        <!-- { -->
-          <!-- note: { -->
-            <!-- label: "triggered by Iraq's invasion of Kuwait, leading to the rise of oil price", -->
-            <!-- title: "Gulf war" //badges have an x of "left" or "right" -->
-          <!-- }, -->
-          <!-- type: d3.annotationCalloutCircle, -->
-          <!-- subject: { -->
-             <!-- radius: 10, -->
-             <!-- radiusPadding: 1 -->
-             <!-- }, -->
-          <!-- color: ["red"], -->
-          <!-- data: { x: "1963 JUN", y: 17500}, -->
-          <!-- dy: -30, -->
-          <!-- dx: 30 -->
-        <!-- } -->
-        <!-- ] -->
 
-      <!-- const makeAnnotations = d3.annotation() -->
-        <!-- .accessors({  -->
-          <!-- x: function(d){ return x(new Date(d.x))}, -->
-          <!-- y: function(d){ return y(d.y) } -->
-        <!-- }) -->
-        <!-- .annotations(annotations) -->
-
-      <!-- d3.select("svg") -->
-        <!-- .append("g") -->
-        <!-- .attr("class", "annotation-group") -->
-        <!-- .call(makeAnnotations) -->
 			
 });	
 
+      const annotations = [
+        {
+          note: {
+            label: "triggered by Iraq's invasion of Kuwait, leading to the rise of oil price",
+            title: "Gulf war" //badges have an x of "left" or "right"
+          },
+          type: d3.annotationCalloutCircle,
+          subject: {
+             radius: 10,
+             radiusPadding: 1
+             },
+          color: ["red"],
+          data: { x: "1963 JUN", y: 17500},
+          dy: -30,
+          dx: 30
+        }
+        ]
 
+      const makeAnnotations = d3.annotation()
+        .accessors({ 
+          x: function(d){ return x(new Date(d.x))},
+          y: function(d){ return y(d.y) }
+        })
+        .annotations(annotations)
+
+      d3.select("svg")
+        .append("g")
+        .attr("class", "annotation-group")
+        .call(makeAnnotations)
 	
 	</script>
 </body>
